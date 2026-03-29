@@ -1,0 +1,22 @@
+R_DEF: Internal format may change without notice
+local
+drawable ic_tars_notif
+drawable ic_tars_splash
+drawable widget_background
+drawable widget_mic_background
+id widget_last_msg
+id widget_mic_btn
+id widget_root
+id widget_status
+layout widget_tars
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string notif_channel_main
+string notif_channel_proactive
+string notif_channel_reminder
+string tile_label
+string widget_description
+style Theme.TARSAssistant
+style Theme.TARSAssistant.SplashScreen
+xml tars_widget_info

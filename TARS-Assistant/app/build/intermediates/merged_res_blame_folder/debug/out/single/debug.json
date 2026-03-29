@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/drawable_widget_mic_background.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/drawable/widget_mic_background.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/mipmap-hdpi_ic_launcher.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/mipmap-hdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/layout_widget_tars.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/layout/widget_tars.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/mipmap-xxhdpi_ic_launcher_round.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/mipmap-xxhdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/drawable_ic_tars_splash.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/drawable/ic_tars_splash.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/mipmap-xhdpi_ic_launcher.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/mipmap-xhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/mipmap-xxxhdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/mipmap-hdpi_ic_launcher_round.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/mipmap-hdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/mipmap-xxxhdpi_ic_launcher.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/mipmap-xxxhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/xml_tars_widget_info.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/xml/tars_widget_info.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/mipmap-xhdpi_ic_launcher_round.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/mipmap-xhdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/drawable_widget_background.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/drawable/widget_background.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/mipmap-xxhdpi_ic_launcher.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/mipmap-xxhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.tars.assistant.app-merged_res-55:/drawable_ic_tars_notif.xml.flat",
+        "source": "com.tars.assistant.app-main-57:/drawable/ic_tars_notif.xml"
+    }
+]

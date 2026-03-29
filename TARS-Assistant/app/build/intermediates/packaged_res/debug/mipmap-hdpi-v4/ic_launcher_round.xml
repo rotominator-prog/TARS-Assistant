@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Outer monolith -->
+    <path
+        android:pathData="M35,14 L73,14 L73,94 L35,94 Z"
+        android:fillColor="#00000000"
+        android:strokeColor="#00C8FF"
+        android:strokeWidth="2.5"/>
+
+    <!-- Inner lights -->
+    <path
+        android:pathData="M42,24 L66,24 L66,34 L42,34 Z"
+        android:fillColor="#00C8FF"
+        android:fillAlpha="0.4"/>
+
+    <path
+        android:pathData="M42,46 L66,46 L66,50 L42,50 Z"
+        android:fillColor="#00C8FF"
+        android:fillAlpha="0.6"/>
+
+    <path
+        android:pathData="M42,56 L66,56 L66,60 L42,60 Z"
+        android:fillColor="#00C8FF"
+        android:fillAlpha="0.6"/>
+
+    <path
+        android:pathData="M42,74 L66,74 L66,84 L42,84 Z"
+        android:fillColor="#00C8FF"
+        android:fillAlpha="0.2"/>
+
+    <!-- Corner accents -->
+    <path
+        android:pathData="M8,54 L35,54"
+        android:strokeColor="#00C8FF"
+        android:strokeWidth="1"
+        android:strokeAlpha="0.3"/>
+
+    <path
+        android:pathData="M73,54 L100,54"
+        android:strokeColor="#00C8FF"
+        android:strokeWidth="1"
+        android:strokeAlpha="0.3"/>
+
+</vector>

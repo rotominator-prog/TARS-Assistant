@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TARS</string>
+    <string name="widget_description">Asistent TARS — acces rapid la conversație și voce</string>
+    <string name="tile_label">TARS</string>
+    <string name="notif_channel_main">TARS — General</string>
+    <string name="notif_channel_reminder">TARS — Reminder-uri</string>
+    <string name="notif_channel_proactive">TARS — Mesaje proactive</string>
+</resources>

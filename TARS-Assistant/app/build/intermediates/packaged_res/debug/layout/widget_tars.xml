@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:gravity="center_vertical">
+
+    <!-- Header row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <!-- TARS monolith icon -->
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_tars_splash"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="TARS" />
+
+        <!-- Title + Status -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T·A·R·S"
+                android:textColor="#00C8FF"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.15"/>
+
+            <TextView
+                android:id="@+id/widget_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TARS // STANDBY"
+                android:textColor="#4A7A8A"
+                android:textSize="9sp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.08"/>
+        </LinearLayout>
+
+        <!-- Mic button -->
+        <ImageButton
+            android:id="@+id/widget_mic_btn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/widget_mic_background"
+            android:src="@android:drawable/ic_btn_speak_now"
+            android:tint="#00C8FF"
+            android:contentDescription="Activează vocea"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#0D2233"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Last message preview -->
+    <TextView
+        android:id="@+id/widget_last_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Apasă să vorbești cu TARS..."
+        android:textColor="#B8DDE8"
+        android:textSize="10sp"
+        android:fontFamily="monospace"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:lineSpacingMultiplier="1.3"/>
+
+</LinearLayout>
