@@ -11,250 +11,253 @@
 11    <uses-permission android:name="android.permission.INTERNET" />
 11-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:4:5-67
 11-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:4:22-64
-12    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-12-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:5:5-71
-12-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:5:22-68
-13    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-13-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:6:5-80
-13-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:6:22-77
-14    <uses-permission android:name="android.permission.SET_ALARM" />
-14-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:7:5-68
-14-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:7:22-65
-15    <uses-permission android:name="android.permission.VIBRATE" />
-15-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:8:5-66
-15-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:8:22-63
-16    <uses-permission android:name="android.permission.READ_CALENDAR" />
-16-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:9:5-72
-16-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:9:22-69
-17    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
-17-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:10:5-73
-17-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:10:22-70
-18    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-18-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:11:5-79
-18-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:11:22-76
-19    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-19-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:12:5-81
-19-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:12:22-78
-20    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:5:5-79
+12-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:5:22-76
+13    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+13-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:6:5-71
+13-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:6:22-68
+14    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+14-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:7:5-80
+14-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:7:22-77
+15    <uses-permission android:name="android.permission.SET_ALARM" />
+15-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:8:5-68
+15-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:8:22-65
+16    <uses-permission android:name="android.permission.VIBRATE" />
+16-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:9:5-66
+16-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:9:22-63
+17    <uses-permission android:name="android.permission.READ_CALENDAR" />
+17-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:10:5-72
+17-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:10:22-69
+18    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+18-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:11:5-73
+18-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:11:22-70
+19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+19-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:12:5-79
+19-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:12:22-76
+20    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 20-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:13:5-81
 20-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:13:22-78
-21    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-21-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:14:5-79
-21-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:14:22-76
-22    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-22-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:15:5-77
-22-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:15:22-74
-23    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
-23-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:16:5-74
-23-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:16:22-71
-24    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-24-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:17:5-77
-24-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:17:22-74
-25    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
-25-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:18:5-88
-25-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:18:22-85
-26
-27    <permission
-27-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
-28        android:name="com.tars.assistant.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-28-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
-29        android:protectionLevel="signature" />
-29-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
-30
-31    <uses-permission android:name="com.tars.assistant.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-31-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
-31-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
-32
-33    <application
-33-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:20:5-68:19
-34        android:allowBackup="true"
-34-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:21:9-35
-35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-35-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
-36        android:debuggable="true"
-37        android:extractNativeLibs="false"
-38        android:hardwareAccelerated="true"
-38-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:27:9-43
-39        android:icon="@mipmap/ic_launcher"
-39-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:22:9-43
-40        android:label="@string/app_name"
-40-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:23:9-41
-41        android:roundIcon="@mipmap/ic_launcher_round"
-41-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:24:9-54
-42        android:supportsRtl="true"
-42-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:25:9-35
-43        android:theme="@style/Theme.TARSAssistant" >
-43-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:26:9-51
-44        <activity
-44-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:29:9-38:20
-45            android:name="com.tars.assistant.ui.MainActivity"
-45-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:30:13-44
-46            android:exported="true"
-46-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:31:13-36
-47            android:screenOrientation="portrait"
-47-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:33:13-49
-48            android:windowSoftInputMode="adjustResize" >
-48-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:32:13-55
-49            <intent-filter>
-49-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:34:13-37:29
-50                <action android:name="android.intent.action.MAIN" />
-50-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:35:17-69
-50-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:35:25-66
-51
-52                <category android:name="android.intent.category.LAUNCHER" />
-52-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:36:17-77
-52-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:36:27-74
-53            </intent-filter>
-54        </activity>
-55
-56        <receiver
-56-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:40:9-45:20
-57            android:name="com.tars.assistant.widget.TarsWidget"
-57-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:40:19-52
-58            android:exported="true"
-58-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:40:53-76
-59            android:label="TARS" >
-59-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:40:77-97
-60            <intent-filter>
-60-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:41:13-43:29
-61                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-61-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:42:17-84
-61-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:42:25-81
-62            </intent-filter>
-63
-64            <meta-data
-64-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:44:13-109
-65                android:name="android.appwidget.provider"
-65-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:44:24-65
-66                android:resource="@xml/tars_widget_info" />
-66-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:44:66-106
-67        </receiver>
-68
-69        <service
-69-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:47:9-56:19
-70            android:name="com.tars.assistant.service.TarsQuickTileService"
-70-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:48:13-57
-71            android:exported="true"
-71-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:49:13-36
-72            android:icon="@drawable/ic_tars_splash"
-72-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:50:13-52
-73            android:label="TARS"
-73-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:51:13-33
-74            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
-74-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:52:13-77
-75            <intent-filter>
-75-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:53:13-55:29
-76                <action android:name="android.service.quicksettings.action.QS_TILE" />
-76-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:54:17-87
-76-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:54:25-84
-77            </intent-filter>
-78        </service>
-79
-80        <receiver
-80-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:58:9-64:20
-81            android:name="com.tars.assistant.receiver.VoiceActivationReceiver"
-81-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:58:19-67
-82            android:exported="true" >
-82-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:58:68-91
-83            <intent-filter>
-83-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:59:13-63:29
-84                <action android:name="com.tars.assistant.WIDGET_MIC" />
-84-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:60:17-72
-84-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:60:25-69
-85                <action android:name="com.tars.assistant.STOP_LISTENING" />
-85-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:61:17-76
-85-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:61:25-73
-86                <action android:name="android.intent.action.BOOT_COMPLETED" />
-86-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:62:17-79
-86-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:62:25-76
-87            </intent-filter>
-88        </receiver>
-89        <receiver
-89-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:66:9-92
-90            android:name="com.tars.assistant.service.TarsProactiveReceiver"
-90-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:66:19-64
-91            android:exported="false" />
-91-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:66:65-89
-92
-93        <activity
-93-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/1396aaf581e26527b6aa2d09025e0bd4/transformed/jetified-ui-tooling-release/AndroidManifest.xml:23:9-25:39
-94            android:name="androidx.compose.ui.tooling.PreviewActivity"
-94-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/1396aaf581e26527b6aa2d09025e0bd4/transformed/jetified-ui-tooling-release/AndroidManifest.xml:24:13-71
-95            android:exported="true" />
-95-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/1396aaf581e26527b6aa2d09025e0bd4/transformed/jetified-ui-tooling-release/AndroidManifest.xml:25:13-36
-96
-97        <provider
-97-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
-98            android:name="androidx.startup.InitializationProvider"
-98-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:25:13-67
-99            android:authorities="com.tars.assistant.debug.androidx-startup"
-99-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:26:13-68
-100            android:exported="false" >
-100-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:27:13-37
-101            <meta-data
-101-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
-102                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-102-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:30:17-75
-103                android:value="androidx.startup" />
-103-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:31:17-49
-104            <meta-data
-104-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/codespace/.gradle/caches/8.10/transforms/eb0232d7d04023897ce2d3b33f4101b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
-105                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-105-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/codespace/.gradle/caches/8.10/transforms/eb0232d7d04023897ce2d3b33f4101b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
-106                android:value="androidx.startup" />
-106-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/codespace/.gradle/caches/8.10/transforms/eb0232d7d04023897ce2d3b33f4101b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
-107            <meta-data
-107-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
-108                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-108-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
-109                android:value="androidx.startup" />
-109-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
-110        </provider>
-111
-112        <activity
-112-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/a9c6f0bfc3e228deb5bbe64a2910f154/transformed/jetified-ui-test-manifest-1.5.4/AndroidManifest.xml:23:9-25:39
-113            android:name="androidx.activity.ComponentActivity"
-113-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/a9c6f0bfc3e228deb5bbe64a2910f154/transformed/jetified-ui-test-manifest-1.5.4/AndroidManifest.xml:24:13-63
-114            android:exported="true" />
-114-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/a9c6f0bfc3e228deb5bbe64a2910f154/transformed/jetified-ui-test-manifest-1.5.4/AndroidManifest.xml:25:13-36
-115
-116        <receiver
-116-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
-117            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-117-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
-118            android:directBootAware="false"
-118-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
-119            android:enabled="true"
-119-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
-120            android:exported="true"
-120-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
-121            android:permission="android.permission.DUMP" >
-121-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
-122            <intent-filter>
-122-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
-123                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-123-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-123-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
-124            </intent-filter>
-125            <intent-filter>
-125-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
-126                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-126-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-126-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
-127            </intent-filter>
-128            <intent-filter>
-128-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
-129                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-129-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-129-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
-130            </intent-filter>
-131            <intent-filter>
-131-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
-132                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-132-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-132-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
-133            </intent-filter>
-134        </receiver>
-135    </application>
-136
-137</manifest>
+21    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+21-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:14:5-81
+21-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:14:22-78
+22    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+22-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:15:5-79
+22-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:15:22-76
+23    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+23-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:16:5-77
+23-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:16:22-74
+24    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+24-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:17:5-74
+24-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:17:22-71
+25    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+25-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:18:5-77
+25-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:18:22-74
+26    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+26-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:19:5-88
+26-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:19:22-85
+27
+28    <permission
+28-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+29        android:name="com.tars.assistant.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+29-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+30        android:protectionLevel="signature" />
+30-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+31
+32    <uses-permission android:name="com.tars.assistant.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+32-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+32-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+33
+34    <application
+34-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:21:5-69:19
+35        android:allowBackup="true"
+35-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:22:9-35
+36        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+36-->[androidx.core:core:1.12.0] /home/codespace/.gradle/caches/8.10/transforms/56ad8e5570066729cc0a91c8bc30bb51/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+37        android:debuggable="true"
+38        android:extractNativeLibs="false"
+39        android:hardwareAccelerated="true"
+39-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:28:9-43
+40        android:icon="@mipmap/ic_launcher"
+40-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:23:9-43
+41        android:label="@string/app_name"
+41-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:24:9-41
+42        android:roundIcon="@mipmap/ic_launcher_round"
+42-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:25:9-54
+43        android:supportsRtl="true"
+43-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:26:9-35
+44        android:theme="@style/Theme.TARSAssistant" >
+44-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:27:9-51
+45        <activity
+45-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:30:9-39:20
+46            android:name="com.tars.assistant.ui.MainActivity"
+46-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:31:13-44
+47            android:exported="true"
+47-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:32:13-36
+48            android:screenOrientation="portrait"
+48-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:34:13-49
+49            android:windowSoftInputMode="adjustResize" >
+49-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:33:13-55
+50            <intent-filter>
+50-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:35:13-38:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:36:17-69
+51-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:36:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:37:17-77
+53-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:37:27-74
+54            </intent-filter>
+55        </activity>
+56
+57        <receiver
+57-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:41:9-46:20
+58            android:name="com.tars.assistant.widget.TarsWidget"
+58-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:41:19-52
+59            android:exported="true"
+59-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:41:53-76
+60            android:label="TARS" >
+60-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:41:77-97
+61            <intent-filter>
+61-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:42:13-44:29
+62                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+62-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:43:17-84
+62-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:43:25-81
+63            </intent-filter>
+64
+65            <meta-data
+65-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:45:13-109
+66                android:name="android.appwidget.provider"
+66-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:45:24-65
+67                android:resource="@xml/tars_widget_info" />
+67-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:45:66-106
+68        </receiver>
+69
+70        <service
+70-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:48:9-57:19
+71            android:name="com.tars.assistant.service.TarsQuickTileService"
+71-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:49:13-57
+72            android:exported="true"
+72-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:50:13-36
+73            android:icon="@drawable/ic_tars_splash"
+73-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:51:13-52
+74            android:label="TARS"
+74-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:52:13-33
+75            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
+75-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:53:13-77
+76            <intent-filter>
+76-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:54:13-56:29
+77                <action android:name="android.service.quicksettings.action.QS_TILE" />
+77-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:55:17-87
+77-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:55:25-84
+78            </intent-filter>
+79        </service>
+80
+81        <receiver
+81-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:59:9-65:20
+82            android:name="com.tars.assistant.receiver.VoiceActivationReceiver"
+82-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:59:19-67
+83            android:exported="true" >
+83-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:59:68-91
+84            <intent-filter>
+84-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:60:13-64:29
+85                <action android:name="com.tars.assistant.WIDGET_MIC" />
+85-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:61:17-72
+85-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:61:25-69
+86                <action android:name="com.tars.assistant.STOP_LISTENING" />
+86-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:62:17-76
+86-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:62:25-73
+87                <action android:name="android.intent.action.BOOT_COMPLETED" />
+87-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:63:17-79
+87-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:63:25-76
+88            </intent-filter>
+89        </receiver>
+90        <receiver
+90-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:67:9-92
+91            android:name="com.tars.assistant.service.TarsProactiveReceiver"
+91-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:67:19-64
+92            android:exported="false" />
+92-->/workspaces/TARS-Assistant/TARS-Assistant/app/src/main/AndroidManifest.xml:67:65-89
+93
+94        <activity
+94-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/1396aaf581e26527b6aa2d09025e0bd4/transformed/jetified-ui-tooling-release/AndroidManifest.xml:23:9-25:39
+95            android:name="androidx.compose.ui.tooling.PreviewActivity"
+95-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/1396aaf581e26527b6aa2d09025e0bd4/transformed/jetified-ui-tooling-release/AndroidManifest.xml:24:13-71
+96            android:exported="true" />
+96-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/1396aaf581e26527b6aa2d09025e0bd4/transformed/jetified-ui-tooling-release/AndroidManifest.xml:25:13-36
+97
+98        <provider
+98-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+99            android:name="androidx.startup.InitializationProvider"
+99-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:25:13-67
+100            android:authorities="com.tars.assistant.debug.androidx-startup"
+100-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:26:13-68
+101            android:exported="false" >
+101-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:27:13-37
+102            <meta-data
+102-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+103                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+103-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:30:17-75
+104                android:value="androidx.startup" />
+104-->[androidx.emoji2:emoji2:1.4.0] /home/codespace/.gradle/caches/8.10/transforms/64bafcd339add1d8e25d2dc2e3dbd9fb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:31:17-49
+105            <meta-data
+105-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/codespace/.gradle/caches/8.10/transforms/eb0232d7d04023897ce2d3b33f4101b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+106                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+106-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/codespace/.gradle/caches/8.10/transforms/eb0232d7d04023897ce2d3b33f4101b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+107                android:value="androidx.startup" />
+107-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/codespace/.gradle/caches/8.10/transforms/eb0232d7d04023897ce2d3b33f4101b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+108            <meta-data
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+109                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+109-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+110                android:value="androidx.startup" />
+110-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+111        </provider>
+112
+113        <activity
+113-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/a9c6f0bfc3e228deb5bbe64a2910f154/transformed/jetified-ui-test-manifest-1.5.4/AndroidManifest.xml:23:9-25:39
+114            android:name="androidx.activity.ComponentActivity"
+114-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/a9c6f0bfc3e228deb5bbe64a2910f154/transformed/jetified-ui-test-manifest-1.5.4/AndroidManifest.xml:24:13-63
+115            android:exported="true" />
+115-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/codespace/.gradle/caches/8.10/transforms/a9c6f0bfc3e228deb5bbe64a2910f154/transformed/jetified-ui-test-manifest-1.5.4/AndroidManifest.xml:25:13-36
+116
+117        <receiver
+117-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+118            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+118-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+119            android:directBootAware="false"
+119-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+120            android:enabled="true"
+120-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+121            android:exported="true"
+121-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+122            android:permission="android.permission.DUMP" >
+122-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+123            <intent-filter>
+123-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+124                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+124-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+124-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+125            </intent-filter>
+126            <intent-filter>
+126-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+127                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+127-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+127-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+128            </intent-filter>
+129            <intent-filter>
+129-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+130                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+130-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+130-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+131            </intent-filter>
+132            <intent-filter>
+132-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+133                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+133-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+133-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.10/transforms/6b06f3f849a1c6c66633bcae986e401b/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+134            </intent-filter>
+135        </receiver>
+136    </application>
+137
+138</manifest>

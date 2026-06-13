@@ -21,18 +21,18 @@ import java.util.Calendar
 class TarsProactiveReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        val apiKey = SecureStorage.getApiKey(context) ?: return
-        val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+        val providers = SecureStorage.getProviderChain(context)
+        if (providers.isEmpty()) return
 
+        val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
         val prompt = when {
             hour in 6..10  -> buildMorningPrompt()
             hour in 18..22 -> buildEveningPrompt()
             else -> return
         }
 
-        // Call Claude API for a proactive message
         CoroutineScope(Dispatchers.IO).launch {
-            val service = ClaudeService()
+            val service = AiService()
             val fakeHistory = listOf(
                 com.tars.assistant.model.ChatMessage(
                     content = prompt,
@@ -40,14 +40,13 @@ class TarsProactiveReceiver : BroadcastReceiver() {
                 )
             )
             val result = service.sendMessage(
-                apiKey = apiKey,
+                providers = providers,
                 conversationHistory = fakeHistory,
                 humorLevel = SecureStorage.getHumorLevel(context),
                 userName = SecureStorage.getTarsName(context)
             )
-            result.onSuccess { response ->
-                val title = if (hour in 6..10) "Bună dimineața" else "Bună seara"
-                TarsNotificationManager.showProactiveNotification(context, response.take(120))
+            result.onSuccess { ai ->
+                TarsNotificationManager.showProactiveNotification(context, ai.text.take(120))
             }
         }
     }
@@ -66,10 +65,7 @@ class TarsProactiveReceiver : BroadcastReceiver() {
 
         fun schedule(context: Context) {
             val alarm = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-
-            // Morning: 8:00
             scheduleDailyAlarm(context, alarm, 8, 0, REQUEST_MORNING)
-            // Evening: 20:00
             scheduleDailyAlarm(context, alarm, 20, 0, REQUEST_EVENING)
         }
 
@@ -110,7 +106,6 @@ class TarsProactiveReceiver : BroadcastReceiver() {
                     pending
                 )
             } catch (e: SecurityException) {
-                // SCHEDULE_EXACT_ALARM not granted, use inexact
                 alarm.set(AlarmManager.RTC_WAKEUP, cal.timeInMillis, pending)
             }
         }

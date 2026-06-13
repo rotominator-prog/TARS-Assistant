@@ -14,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.tars.assistant.model.AiProvider
 import com.tars.assistant.ui.theme.TarsColors
 import com.tars.assistant.ui.theme.TarsTheme
 import com.tars.assistant.viewmodel.TarsViewModel
@@ -138,6 +139,6 @@ fun TarsApp(
         label = "nav"
     ) { onboarded ->
         if (onboarded) ChatScreen(viewModel = viewModel)
-        else OnboardingScreen(onComplete = { apiKey, name -> viewModel.completeOnboarding(apiKey, name) })
+        else OnboardingScreen(onComplete = { provider, apiKey, name -> viewModel.completeOnboarding(provider, apiKey, name) })
     }
 }

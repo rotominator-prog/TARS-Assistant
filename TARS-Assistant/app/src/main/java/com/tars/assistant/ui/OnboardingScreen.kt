@@ -11,27 +11,32 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.tars.assistant.model.AiProvider
 import com.tars.assistant.ui.theme.TarsColors
 
+/**
+ * Onboarding. Providerul implicit e Gemini (gratuit, calitate bună pe română).
+ * Utilizatorul poate adăuga ceilalți provideri (Groq, Cerebras etc.) ulterior
+ * din Setări, pentru lanțul de fallback.
+ */
 @Composable
-fun OnboardingScreen(onComplete: (apiKey: String, name: String) -> Unit) {
+fun OnboardingScreen(onComplete: (provider: AiProvider, apiKey: String, name: String) -> Unit) {
+    val defaultProvider = AiProvider.GEMINI
+
     var step by remember { mutableStateOf(0) }
     var apiKey by remember { mutableStateOf("") }
     var userName by remember { mutableStateOf("") }
     var showKey by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf("") }
 
-    // Pulsing animation for TARS logo
     val infiniteTransition = rememberInfiniteTransition(label = "pulse")
     val glowAlpha by infiniteTransition.animateFloat(
         initialValue = 0.3f,
@@ -43,12 +48,7 @@ fun OnboardingScreen(onComplete: (apiKey: String, name: String) -> Unit) {
         label = "glow"
     )
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(TarsColors.Background)
-    ) {
-        // Animated backgrounds
+    Box(modifier = Modifier.fillMaxSize().background(TarsColors.Background)) {
         StarfieldBackground(Modifier.fillMaxSize())
         HexGridBackground(Modifier.fillMaxSize(), alpha = 0.05f)
 
@@ -60,7 +60,6 @@ fun OnboardingScreen(onComplete: (apiKey: String, name: String) -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            // TARS Logo
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
@@ -72,7 +71,6 @@ fun OnboardingScreen(onComplete: (apiKey: String, name: String) -> Unit) {
                         )
                     }
             ) {
-                // Monolith shape
                 Box(
                     modifier = Modifier
                         .width(40.dp)
@@ -125,7 +123,6 @@ fun OnboardingScreen(onComplete: (apiKey: String, name: String) -> Unit) {
 
             Spacer(Modifier.height(40.dp))
 
-            // Step indicator
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 repeat(2) { i ->
                     Box(
@@ -150,7 +147,7 @@ fun OnboardingScreen(onComplete: (apiKey: String, name: String) -> Unit) {
                         onToggleShow = { showKey = !showKey },
                         error = error,
                         onNext = {
-                            if (apiKey.trim().length < 20) {
+                            if (apiKey.trim().length < 15) {
                                 error = "Cheia API pare invalidă. Verifică și încearcă din nou."
                             } else {
                                 step = 1
@@ -160,9 +157,12 @@ fun OnboardingScreen(onComplete: (apiKey: String, name: String) -> Unit) {
                     1 -> Step1UserName(
                         userName = userName,
                         onUserNameChange = { userName = it; error = "" },
-                        error = error,
                         onComplete = {
-                            onComplete(apiKey.trim(), userName.trim().ifBlank { "Utilizator" })
+                            onComplete(
+                                defaultProvider,
+                                apiKey.trim(),
+                                userName.trim().ifBlank { "Utilizator" }
+                            )
                         }
                     )
                 }
@@ -182,13 +182,15 @@ private fun Step0ApiKey(
 ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         TarsInfoBox(
-            title = "PASUL 1 // CHEIE API",
-            content = "TARS are nevoie de o cheie API Anthropic pentru a gândi.\n\n" +
-                "1. Deschide console.anthropic.com\n" +
-                "2. Creează cont gratuit\n" +
-                "3. API Keys → Create Key\n" +
-                "4. Lipește cheia mai jos\n\n" +
-                "Cheia rămâne stocată CRIPTAT doar pe telefonul tău."
+            title = "PASUL 1 // CHEIE API GRATUITĂ",
+            content = "TARS are nevoie de o cheie API pentru a gândi. " +
+                "Folosim Google Gemini — gratuit, fără card.\n\n" +
+                "1. Deschide aistudio.google.com/apikey\n" +
+                "2. Loghează-te cu un cont Google\n" +
+                "3. Apasă \"Create API key\"\n" +
+                "4. Copiază cheia (începe cu AIza...) și lipește-o mai jos\n\n" +
+                "Cheia rămâne stocată CRIPTAT doar pe telefonul tău. " +
+                "Poți adăuga mai târziu Groq și Cerebras în Setări, ca rezerve."
         )
 
         Spacer(Modifier.height(20.dp))
@@ -196,7 +198,7 @@ private fun Step0ApiKey(
         TarsTextField(
             value = apiKey,
             onValueChange = onApiKeyChange,
-            label = "sk-ant-api03-...",
+            label = "AIza...",
             visualTransformation = if (showKey) VisualTransformation.None else PasswordVisualTransformation(),
             trailingContent = {
                 TextButton(onClick = onToggleShow) {
@@ -228,7 +230,6 @@ private fun Step0ApiKey(
 private fun Step1UserName(
     userName: String,
     onUserNameChange: (String) -> Unit,
-    error: String,
     onComplete: () -> Unit
 ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {

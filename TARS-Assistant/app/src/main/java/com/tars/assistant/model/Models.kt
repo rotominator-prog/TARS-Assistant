@@ -19,10 +19,33 @@ data class TarsState(
     val isListening: Boolean = false,
     val isSpeaking: Boolean = false,
     val isThinking: Boolean = false,
-    val statusText: String = "STANDBY"
+    val statusText: String = "STANDBY",
+    /** Numele providerului care a răspuns ultima dată (pt. UI/debug). */
+    val activeProvider: String = ""
 )
 
-// ── Claude API Models ─────────────────────────────────────────
+// ── Format OpenAI-compatibil (Gemini, Groq, Cerebras, OpenRouter, Mistral) ──
+data class OpenAiRequest(
+    val model: String,
+    val messages: List<OpenAiMessage>,
+    val max_tokens: Int? = 1024,
+    val temperature: Double = 0.7
+)
+
+data class OpenAiMessage(
+    val role: String,      // "system" | "user" | "assistant"
+    val content: String
+)
+
+data class OpenAiResponse(
+    val choices: List<OpenAiChoice> = emptyList()
+)
+
+data class OpenAiChoice(
+    val message: OpenAiMessage?
+)
+
+// ── Format nativ Anthropic (Claude) ───────────────────────────
 data class ClaudeRequest(
     val model: String = "claude-sonnet-4-20250514",
     val max_tokens: Int = 1024,
@@ -36,8 +59,8 @@ data class ClaudeMessage(
 )
 
 data class ClaudeResponse(
-    val content: List<ClaudeContent>,
-    val usage: ClaudeUsage?
+    val content: List<ClaudeContent> = emptyList(),
+    val usage: ClaudeUsage? = null
 )
 
 data class ClaudeContent(
