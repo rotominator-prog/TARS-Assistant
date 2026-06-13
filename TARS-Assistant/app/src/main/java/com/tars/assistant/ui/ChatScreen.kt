@@ -97,6 +97,18 @@ fun ChatScreen(viewModel: TarsViewModel) {
                 onHumorChange = viewModel::setHumorLevel
             )
 
+            // ── HONESTY SLIDER ──
+            HonestyBar(
+                honestyLevel = tarsState.honestyLevel,
+                onHonestyChange = viewModel::setHonestyLevel
+            )
+
+            // ── SARCASM SLIDER ──
+            SarcasmBar(
+                sarcasmLevel = tarsState.sarcasmLevel,
+                onSarcasmChange = viewModel::setSarcasmLevel
+            )
+
             // ── MESSAGES ──
 @OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class, androidx.compose.material3.ExperimentalMaterial3Api::class)
             @Suppress("OPT_IN_USAGE")
@@ -299,6 +311,74 @@ fun HumorBar(humorLevel: Int, onHumorChange: (Int) -> Unit) {
         )
         Text(
             "$humorLevel%",
+            style = MaterialTheme.typography.labelSmall,
+            color = TarsColors.AccentCyan,
+            modifier = Modifier.width(32.dp),
+            textAlign = TextAlign.End
+        )
+    }
+}
+
+// ── HONESTY BAR ──────────────────────────────────────────────
+@Composable
+fun HonestyBar(honestyLevel: Int, onHonestyChange: (Int) -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(TarsColors.Surface)
+            .border(BorderStroke(Dp.Hairline, TarsColors.Border))
+            .padding(horizontal = 20.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        Text("SINCER", style = MaterialTheme.typography.labelSmall, color = TarsColors.TextSecondary)
+        Slider(
+            value = honestyLevel.toFloat(),
+            onValueChange = { onHonestyChange(it.toInt()) },
+            valueRange = 0f..100f,
+            modifier = Modifier.weight(1f),
+            colors = SliderDefaults.colors(
+                thumbColor = TarsColors.AccentCyan,
+                activeTrackColor = TarsColors.AccentCyanDim,
+                inactiveTrackColor = TarsColors.Border
+            )
+        )
+        Text(
+            "$honestyLevel%",
+            style = MaterialTheme.typography.labelSmall,
+            color = TarsColors.AccentCyan,
+            modifier = Modifier.width(32.dp),
+            textAlign = TextAlign.End
+        )
+    }
+}
+
+// ── SARCASM BAR ──────────────────────────────────────────────
+@Composable
+fun SarcasmBar(sarcasmLevel: Int, onSarcasmChange: (Int) -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(TarsColors.Surface)
+            .border(BorderStroke(Dp.Hairline, TarsColors.Border))
+            .padding(horizontal = 20.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        Text("SARCASM", style = MaterialTheme.typography.labelSmall, color = TarsColors.TextSecondary)
+        Slider(
+            value = sarcasmLevel.toFloat(),
+            onValueChange = { onSarcasmChange(it.toInt()) },
+            valueRange = 0f..100f,
+            modifier = Modifier.weight(1f),
+            colors = SliderDefaults.colors(
+                thumbColor = TarsColors.AccentCyan,
+                activeTrackColor = TarsColors.AccentCyanDim,
+                inactiveTrackColor = TarsColors.Border
+            )
+        )
+        Text(
+            "$sarcasmLevel%",
             style = MaterialTheme.typography.labelSmall,
             color = TarsColors.AccentCyan,
             modifier = Modifier.width(32.dp),

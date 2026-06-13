@@ -46,6 +46,27 @@ class TarsViewModel(application: Application) : AndroidViewModel(application) {
     private val _voiceEnabled = MutableStateFlow(SecureStorage.isVoiceEnabled(context))
     val voiceEnabled: StateFlow<Boolean> = _voiceEnabled
 
+    // FIX slidere voce: expunem valorile ca StateFlow reactiv, ca să se miște
+    // thumb-ul în timp real (la fel ca sliderul de umor). Înainte se citea
+    // dintr-o funcție getVoicePitch() ne-reactivă, deci Compose nu re-compunea.
+    private val _voicePitch = MutableStateFlow(SecureStorage.getFloat(context, "voice_pitch", 0.78f))
+    val voicePitch: StateFlow<Float> = _voicePitch
+
+    private val _voiceSpeed = MutableStateFlow(SecureStorage.getFloat(context, "voice_speed", 0.88f))
+    val voiceSpeed: StateFlow<Float> = _voiceSpeed
+
+    private val _voiceGender = MutableStateFlow(
+        runCatching { VoiceGender.valueOf(SecureStorage.getVoiceGender(context)) }
+            .getOrDefault(VoiceGender.MALE)
+    )
+    val voiceGender: StateFlow<VoiceGender> = _voiceGender
+
+    private val _voicePreset = MutableStateFlow(
+        runCatching { VoicePreset.valueOf(SecureStorage.getVoicePreset(context)) }
+            .getOrDefault(VoicePreset.TARS)
+    )
+    val voicePreset: StateFlow<VoicePreset> = _voicePreset
+
     private val _partialSpeech = MutableStateFlow("")
     val partialSpeech: StateFlow<String> = _partialSpeech
 
@@ -66,11 +87,21 @@ class TarsViewModel(application: Application) : AndroidViewModel(application) {
         }
 
         val humor = SecureStorage.getHumorLevel(context)
+        val honesty = SecureStorage.getHonestyLevel(context)
+        val sarcasm = SecureStorage.getSarcasmLevel(context)
         val savedPitch = SecureStorage.getFloat(context, "voice_pitch", 0.78f)
         val savedSpeed = SecureStorage.getFloat(context, "voice_speed", 0.88f)
-        voiceService.setPitch(savedPitch)
-        voiceService.setSpeed(savedSpeed)
-        _tarsState.value = _tarsState.value.copy(humorLevel = humor)
+        // Presetul de voce stabilește accent/gen/pitch/viteză de bază.
+        if (_voicePreset.value == VoicePreset.CUSTOM) {
+            voiceService.setPitch(savedPitch)
+            voiceService.setSpeed(savedSpeed)
+            voiceService.setVoiceGender(_voiceGender.value)
+        } else {
+            voiceService.applyPreset(_voicePreset.value)
+        }
+        _tarsState.value = _tarsState.value.copy(
+            humorLevel = humor, honestyLevel = honesty, sarcasmLevel = sarcasm
+        )
 
         speechService.onResult = { text ->
             _partialSpeech.value = ""
@@ -150,6 +181,8 @@ class TarsViewModel(application: Application) : AndroidViewModel(application) {
                 providers = providers,
                 conversationHistory = _messages.value.filter { !it.isTyping },
                 humorLevel = _tarsState.value.humorLevel,
+                honestyLevel = _tarsState.value.honestyLevel,
+                sarcasmLevel = _tarsState.value.sarcasmLevel,
                 userName = SecureStorage.getTarsName(context)
             )
 
@@ -213,6 +246,16 @@ class TarsViewModel(application: Application) : AndroidViewModel(application) {
         SecureStorage.saveHumorLevel(context, level)
     }
 
+    fun setHonestyLevel(level: Int) {
+        _tarsState.value = _tarsState.value.copy(honestyLevel = level)
+        SecureStorage.saveHonestyLevel(context, level)
+    }
+
+    fun setSarcasmLevel(level: Int) {
+        _tarsState.value = _tarsState.value.copy(sarcasmLevel = level)
+        SecureStorage.saveSarcasmLevel(context, level)
+    }
+
     fun toggleVoice() {
         val newVal = !_voiceEnabled.value
         _voiceEnabled.value = newVal
@@ -220,17 +263,46 @@ class TarsViewModel(application: Application) : AndroidViewModel(application) {
         if (!newVal) voiceService.stop()
     }
 
-    fun getVoicePitch() = voiceService.getCurrentPitch()
-    fun getVoiceSpeed() = voiceService.getCurrentSpeed()
-
     fun setVoicePitch(pitch: Float) {
+        _voicePitch.value = pitch              // FIX: update reactiv → slider se mișcă
         voiceService.setPitch(pitch)
         SecureStorage.saveFloat(context, "voice_pitch", pitch)
+        markCustomPreset()
     }
 
     fun setVoiceSpeed(speed: Float) {
+        _voiceSpeed.value = speed              // FIX: update reactiv → slider se mișcă
         voiceService.setSpeed(speed)
         SecureStorage.saveFloat(context, "voice_speed", speed)
+        markCustomPreset()
+    }
+
+    fun setVoiceGender(gender: VoiceGender) {
+        _voiceGender.value = gender
+        voiceService.setVoiceGender(gender)
+        SecureStorage.saveVoiceGender(context, gender.name)
+        markCustomPreset()
+    }
+
+    /** Ajustarea manuală a vocii dezactivează presetul automat. */
+    private fun markCustomPreset() {
+        if (_voicePreset.value != VoicePreset.CUSTOM) {
+            _voicePreset.value = VoicePreset.CUSTOM
+            SecureStorage.saveVoicePreset(context, VoicePreset.CUSTOM.name)
+        }
+    }
+
+    fun setVoicePreset(preset: VoicePreset) {
+        _voicePreset.value = preset
+        SecureStorage.saveVoicePreset(context, preset.name)
+        voiceService.applyPreset(preset)
+        // Sincronizează sliderele și genul cu valorile presetului.
+        _voicePitch.value = voiceService.getCurrentPitch()
+        _voiceSpeed.value = voiceService.getCurrentSpeed()
+        _voiceGender.value = voiceService.getVoiceGender()
+        SecureStorage.saveFloat(context, "voice_pitch", _voicePitch.value)
+        SecureStorage.saveFloat(context, "voice_speed", _voiceSpeed.value)
+        SecureStorage.saveVoiceGender(context, _voiceGender.value.name)
     }
 
     fun testVoice(text: String) { if (_voiceEnabled.value) voiceService.speak(text) }

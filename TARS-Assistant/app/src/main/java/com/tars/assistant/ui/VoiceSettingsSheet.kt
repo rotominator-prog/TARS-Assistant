@@ -13,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.tars.assistant.model.VoiceGender
+import com.tars.assistant.model.VoicePreset
 import com.tars.assistant.ui.theme.TarsColors
 import com.tars.assistant.viewmodel.TarsViewModel
 
@@ -22,6 +24,11 @@ fun VoiceSettingsSheet(
     onDismiss: () -> Unit
 ) {
     val voiceEnabled by viewModel.voiceEnabled.collectAsState()
+    // FIX: citim din StateFlow reactiv → sliderele se mișcă în timp real
+    val pitch by viewModel.voicePitch.collectAsState()
+    val speed by viewModel.voiceSpeed.collectAsState()
+    val gender by viewModel.voiceGender.collectAsState()
+    val preset by viewModel.voicePreset.collectAsState()
 
     Box(
         modifier = Modifier
@@ -42,7 +49,6 @@ fun VoiceSettingsSheet(
                 .padding(24.dp),
             verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
-            // Handle bar
             Box(
                 modifier = Modifier
                     .width(40.dp)
@@ -60,7 +66,6 @@ fun VoiceSettingsSheet(
 
             Divider(color = TarsColors.Border)
 
-            // Voice toggle
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -88,33 +93,73 @@ fun VoiceSettingsSheet(
             AnimatedVisibility(visible = voiceEnabled) {
                 Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
 
-                    // Pitch slider
+                    // Voice preset selector
+                    Text("PRESET VOCE", style = MaterialTheme.typography.labelSmall,
+                        color = TarsColors.TextSecondary, letterSpacing = 1.sp)
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        GenderChip("TARS", preset == VoicePreset.TARS) {
+                            viewModel.setVoicePreset(VoicePreset.TARS)
+                        }
+                        GenderChip("JARVIS", preset == VoicePreset.JARVIS) {
+                            viewModel.setVoicePreset(VoicePreset.JARVIS)
+                        }
+                        GenderChip("CUSTOM", preset == VoicePreset.CUSTOM) {
+                            viewModel.setVoicePreset(VoicePreset.CUSTOM)
+                        }
+                    }
+                    Text(
+                        when (preset) {
+                            VoicePreset.TARS -> "Grav, robotic, deliberat. Română."
+                            VoicePreset.JARVIS -> "Britanic, masculin, elegant și fluid. Engleză (en-GB)."
+                            VoicePreset.CUSTOM -> "Reglaje manuale din opțiunile de mai jos."
+                        },
+                        style = MaterialTheme.typography.labelSmall,
+                        color = TarsColors.TextSecondary.copy(0.6f), fontSize = 9.sp
+                    )
+
+                    // Gender selector
+                    Text("GEN VOCE", style = MaterialTheme.typography.labelSmall,
+                        color = TarsColors.TextSecondary, letterSpacing = 1.sp)
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        GenderChip("MASCULIN", gender == VoiceGender.MALE) {
+                            viewModel.setVoiceGender(VoiceGender.MALE)
+                        }
+                        GenderChip("FEMININ", gender == VoiceGender.FEMALE) {
+                            viewModel.setVoiceGender(VoiceGender.FEMALE)
+                        }
+                        GenderChip("AUTO", gender == VoiceGender.AUTO) {
+                            viewModel.setVoiceGender(VoiceGender.AUTO)
+                        }
+                    }
+
+                    // Pitch slider (reactiv)
                     VoiceSlider(
                         label = "TON (PITCH)",
                         description = "Mai jos = mai robotic / Mai sus = mai natural",
-                        value = viewModel.getVoicePitch(),
+                        value = pitch,
                         range = 0.5f..1.5f,
                         displayValue = { "%.2f".format(it) },
                         onValueChange = { viewModel.setVoicePitch(it) }
                     )
 
-                    // Speed slider
+                    // Speed slider (reactiv)
                     VoiceSlider(
                         label = "VITEZĂ",
                         description = "Mai lent = mai deliberat (recomandat: 0.85)",
-                        value = viewModel.getVoiceSpeed(),
+                        value = speed,
                         range = 0.5f..1.5f,
                         displayValue = { "%.2f".format(it) },
                         onValueChange = { viewModel.setVoiceSpeed(it) }
                     )
 
-                    // Test button
                     OutlinedButton(
                         onClick = {
-                            viewModel.testVoice(
+                            val phrase = if (preset == VoicePreset.JARVIS)
+                                "Good evening. All systems are online and functioning within normal parameters."
+                            else
                                 "Vocea mea e calibrată. Umorul meu, de asemenea. " +
                                 "Onestitate 90 la sută: asta suna mai bine decât mă așteptam."
-                            )
+                            viewModel.testVoice(phrase)
                         },
                         modifier = Modifier.fillMaxWidth(),
                         border = BorderStroke(1.dp, TarsColors.AccentCyanDim),
@@ -129,18 +174,43 @@ fun VoiceSettingsSheet(
                             letterSpacing = 1.sp)
                     }
 
-                    // TTS engine note
                     TarsInfoBox(
                         title = "INFO // CALITATE VOCALĂ",
                         content = "TARS folosește motorul Text-to-Speech instalat pe telefonul tău. " +
-                            "Pentru cea mai bună calitate, instalează Google Text-to-Speech din Play Store " +
-                            "și descarcă pachetul vocal românesc."
+                            "Pentru voce masculină și calitate bună în română, instalează Google " +
+                            "Text-to-Speech din Play Store și descarcă pachetul vocal românesc. " +
+                            "Dacă nu există voce masculină românească, TARS o folosește pe cea engleză masculină."
                     )
                 }
             }
 
             Spacer(Modifier.height(8.dp))
         }
+    }
+}
+
+@Composable
+private fun GenderChip(label: String, selected: Boolean, onClick: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .background(
+                if (selected) TarsColors.AccentCyanDim.copy(0.25f) else TarsColors.Surface,
+                RoundedCornerShape(4.dp)
+            )
+            .border(
+                1.dp,
+                if (selected) TarsColors.AccentCyan else TarsColors.Border,
+                RoundedCornerShape(4.dp)
+            )
+            .clickable(onClick = onClick)
+            .padding(horizontal = 14.dp, vertical = 8.dp)
+    ) {
+        Text(
+            label,
+            style = MaterialTheme.typography.labelSmall,
+            color = if (selected) TarsColors.AccentCyan else TarsColors.TextSecondary,
+            letterSpacing = 1.sp
+        )
     }
 }
 

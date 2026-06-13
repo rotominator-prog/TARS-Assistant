@@ -16,6 +16,8 @@ enum class MessageRole { USER, TARS, SYSTEM }
 // ── TARS Personality State ────────────────────────────────────
 data class TarsState(
     val humorLevel: Int = 75,      // 0-100
+    val honestyLevel: Int = 90,    // 0-100 (referință film: TARS = 90%)
+    val sarcasmLevel: Int = 60,    // 0-100
     val isListening: Boolean = false,
     val isSpeaking: Boolean = false,
     val isThinking: Boolean = false,
@@ -23,6 +25,16 @@ data class TarsState(
     /** Numele providerului care a răspuns ultima dată (pt. UI/debug). */
     val activeProvider: String = ""
 )
+
+/** Genul vocii TTS preferat de utilizator. */
+enum class VoiceGender { MALE, FEMALE, AUTO }
+
+/**
+ * Preset de voce. TARS = grav, robotic, deliberat. JARVIS = britanic,
+ * masculin, elegant, mai fluid și ușor mai înalt. CUSTOM = utilizatorul
+ * reglează manual din slidere fără preset.
+ */
+enum class VoicePreset { TARS, JARVIS, CUSTOM }
 
 // ── Format OpenAI-compatibil (Gemini, Groq, Cerebras, OpenRouter, Mistral) ──
 data class OpenAiRequest(

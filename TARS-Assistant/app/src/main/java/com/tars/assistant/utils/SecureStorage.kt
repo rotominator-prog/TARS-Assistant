@@ -12,7 +12,11 @@ object SecureStorage {
     private const val PREFS_FILE = "tars_secure_prefs"
     private const val FALLBACK_PREFS_FILE = "tars_prefs_fallback"
     private const val KEY_HUMOR = "humor_level"
+    private const val KEY_HONESTY = "honesty_level"
+    private const val KEY_SARCASM = "sarcasm_level"
     private const val KEY_VOICE_ENABLED = "voice_enabled"
+    private const val KEY_VOICE_GENDER = "voice_gender"
+    private const val KEY_VOICE_PRESET = "voice_preset"
     private const val KEY_ONBOARDING_DONE = "onboarding_done"
     private const val KEY_TARS_NAME = "tars_name"
 
@@ -141,6 +145,34 @@ object SecureStorage {
 
     fun getHumorLevel(context: Context): Int =
         getPrefs(context).getInt(KEY_HUMOR, 75)
+
+    fun saveHonestyLevel(context: Context, level: Int) {
+        getPrefs(context).edit().putInt(KEY_HONESTY, level).apply()
+    }
+
+    fun getHonestyLevel(context: Context): Int =
+        getPrefs(context).getInt(KEY_HONESTY, 90)
+
+    fun saveSarcasmLevel(context: Context, level: Int) {
+        getPrefs(context).edit().putInt(KEY_SARCASM, level).apply()
+    }
+
+    fun getSarcasmLevel(context: Context): Int =
+        getPrefs(context).getInt(KEY_SARCASM, 60)
+
+    fun saveVoicePreset(context: Context, preset: String) {
+        getPrefs(context).edit().putString(KEY_VOICE_PRESET, preset).apply()
+    }
+
+    fun getVoicePreset(context: Context): String =
+        getPrefs(context).getString(KEY_VOICE_PRESET, "TARS") ?: "TARS"
+
+    fun saveVoiceGender(context: Context, gender: String) {
+        getPrefs(context).edit().putString(KEY_VOICE_GENDER, gender).apply()
+    }
+
+    fun getVoiceGender(context: Context): String =
+        getPrefs(context).getString(KEY_VOICE_GENDER, "MALE") ?: "MALE"
 
     fun saveVoiceEnabled(context: Context, enabled: Boolean) {
         getPrefs(context).edit().putBoolean(KEY_VOICE_ENABLED, enabled).apply()

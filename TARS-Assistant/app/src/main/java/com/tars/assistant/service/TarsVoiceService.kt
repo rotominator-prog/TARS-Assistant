@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import android.speech.tts.Voice
+import com.tars.assistant.model.VoiceGender
+import com.tars.assistant.model.VoicePreset
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import java.util.Locale
@@ -34,6 +36,10 @@ class TarsVoiceService(private val context: Context) : TextToSpeech.OnInitListen
     private var pitch      = 0.72f   // grav, robotic
     private var speechRate = 0.82f   // deliberat, precis
     private var volume     = 1.0f
+    private var preferredGender = VoiceGender.MALE   // implicit: voce masculină (ca TARS)
+    private var preset = VoicePreset.TARS
+    // Limba/accentul preferat pt. selecția vocii: TARS=ro/us, JARVIS=en-GB.
+    private var preferBritish = false
 
     private val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
@@ -63,14 +69,11 @@ class TarsVoiceService(private val context: Context) : TextToSpeech.OnInitListen
             return
         }
 
-        // 1. Limbă — română cu fallback englez
-        val roResult = tts?.setLanguage(Locale("ro", "RO"))
-        if (roResult == TextToSpeech.LANG_MISSING_DATA ||
-            roResult == TextToSpeech.LANG_NOT_SUPPORTED) {
-            tts?.setLanguage(Locale.US)
-        }
+        // 1. Limbă — depinde de preset. JARVIS preferă engleza britanică;
+        //    TARS preferă româna cu fallback englez.
+        applyLanguageForPreset()
 
-        // 2. Selectează cea mai bună voce masculină disponibilă
+        // 2. Selectează cea mai bună voce pe gen/accent
         selectTarsVoice()
 
         // 3. Aplică profilul vocal TARS
@@ -101,23 +104,69 @@ class TarsVoiceService(private val context: Context) : TextToSpeech.OnInitListen
         _ttsAvailable.value = true
     }
 
+    private fun applyLanguageForPreset() {
+        if (preferBritish) {
+            // JARVIS: engleză britanică, cu fallback la US apoi RO.
+            val gb = tts?.setLanguage(Locale.UK)
+            if (gb == TextToSpeech.LANG_MISSING_DATA || gb == TextToSpeech.LANG_NOT_SUPPORTED) {
+                val us = tts?.setLanguage(Locale.US)
+                if (us == TextToSpeech.LANG_MISSING_DATA || us == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    tts?.setLanguage(Locale("ro", "RO"))
+                }
+            }
+        } else {
+            // TARS: română cu fallback englez.
+            val ro = tts?.setLanguage(Locale("ro", "RO"))
+            if (ro == TextToSpeech.LANG_MISSING_DATA || ro == TextToSpeech.LANG_NOT_SUPPORTED) {
+                tts?.setLanguage(Locale.US)
+            }
+        }
+    }
+
     /**
-     * Selectează vocea optimă pentru TARS:
-     * Prioritate: masculin local → masculin network → orice local → default
+     * Selectează vocea optimă, respectând genul preferat și — pentru JARVIS —
+     * accentul britanic. Scoring: limbă/accent, local (fără rețea), gen, calitate.
      */
     private fun selectTarsVoice() {
         val voices = tts?.voices?.toList() ?: return
 
         val scored = voices
-            .filter { it.locale.language in listOf("ro", "en") }
+            .filter {
+                if (preferBritish) it.locale.language == "en"
+                else it.locale.language in listOf("ro", "en")
+            }
             .map { voice ->
                 var score = 0
-                if (voice.locale.language == "ro") score += 10
+                val country = voice.locale.country.uppercase()
+
+                if (preferBritish) {
+                    if (country == "GB" || country == "UK") score += 14  // accent britanic = JARVIS
+                    if (voice.locale.language == "en") score += 4
+                } else {
+                    if (voice.locale.language == "ro") score += 10
+                }
+
                 if (!voice.isNetworkConnectionRequired) score += 5
+
                 val name = voice.name.lowercase()
-                if ("male" in name && "female" !in name) score += 8
-                // Voci știute ca grave/potrivite
-                if (any(name, "deep", "low", "bass", "adam", "daniel", "george")) score += 6
+                val looksMale = isMaleVoiceName(name)
+                val looksFemale = isFemaleVoiceName(name)
+
+                when (preferredGender) {
+                    VoiceGender.MALE -> {
+                        if (looksMale) score += 12
+                        if (looksFemale) score -= 8
+                        if (any(name, "deep", "low", "bass", "adam", "daniel", "george")) score += 4
+                    }
+                    VoiceGender.FEMALE -> {
+                        if (looksFemale) score += 12
+                        if (looksMale) score -= 8
+                    }
+                    VoiceGender.AUTO -> {
+                        if (looksMale) score += 4
+                    }
+                }
+
                 if (voice.quality >= Voice.QUALITY_NORMAL) score += 3
                 Pair(score, voice)
             }
@@ -125,6 +174,56 @@ class TarsVoiceService(private val context: Context) : TextToSpeech.OnInitListen
 
         scored.firstOrNull()?.second?.let { tts?.voice = it }
     }
+
+    // Euristici de gen pe baza numelui vocii (Android nu expune genul direct).
+    private fun isMaleVoiceName(name: String): Boolean {
+        if ("female" in name || "fem" in name) return false
+        if ("male" in name) return true
+        return any(name, "male", "man", "adam", "daniel", "george", "marius",
+            "andrei", "#male", "-male")
+    }
+
+    private fun isFemaleVoiceName(name: String): Boolean =
+        any(name, "female", "woman", "ioana", "elena", "maria", "#female", "-female")
+
+    /** Schimbă genul vocii și re-selectează imediat. */
+    fun setVoiceGender(gender: VoiceGender) {
+        preferredGender = gender
+        if (isInitialized) selectTarsVoice()
+    }
+
+    fun getVoiceGender() = preferredGender
+
+    /**
+     * Aplică un preset complet de voce: pitch, viteză, gen, accent.
+     * TARS = grav/robotic/deliberat. JARVIS = britanic, mai elegant și fluid.
+     */
+    fun applyPreset(p: VoicePreset) {
+        preset = p
+        when (p) {
+            VoicePreset.TARS -> {
+                preferBritish = false
+                preferredGender = VoiceGender.MALE
+                pitch = 0.72f
+                speechRate = 0.82f
+            }
+            VoicePreset.JARVIS -> {
+                preferBritish = true              // engleză britanică
+                preferredGender = VoiceGender.MALE
+                pitch = 0.92f                     // mai puțin grav, mai elegant
+                speechRate = 0.96f                // mai fluid, mai puțin "mecanic"
+            }
+            VoicePreset.CUSTOM -> { /* păstrează valorile curente */ }
+        }
+        if (isInitialized) {
+            applyLanguageForPreset()
+            selectTarsVoice()
+            tts?.setPitch(pitch)
+            tts?.setSpeechRate(speechRate)
+        }
+    }
+
+    fun getPreset() = preset
 
     private fun any(text: String, vararg keywords: String) = keywords.any { it in text }
 
