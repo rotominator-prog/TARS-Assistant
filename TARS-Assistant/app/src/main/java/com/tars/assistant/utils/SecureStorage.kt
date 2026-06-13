@@ -8,24 +8,44 @@ import androidx.security.crypto.MasterKey
 object SecureStorage {
 
     private const val PREFS_FILE = "tars_secure_prefs"
+    private const val FALLBACK_PREFS_FILE = "tars_prefs_fallback"
     private const val KEY_API_KEY = "anthropic_api_key"
     private const val KEY_HUMOR = "humor_level"
     private const val KEY_VOICE_ENABLED = "voice_enabled"
     private const val KEY_ONBOARDING_DONE = "onboarding_done"
     private const val KEY_TARS_NAME = "tars_name"
 
-    private fun getPrefs(context: Context): SharedPreferences {
-        val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-            .build()
+    // FIX: instanța se creează O SINGURĂ DATĂ și se refolosește.
+    // Înainte: EncryptedSharedPreferences nou la FIECARE apel → 7+ operații
+    // Keystore pe main thread la pornire → hang la splash pe Samsung.
+    @Volatile
+    private var cachedPrefs: SharedPreferences? = null
 
-        return EncryptedSharedPreferences.create(
-            context,
-            PREFS_FILE,
-            masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
+    private fun getPrefs(context: Context): SharedPreferences {
+        cachedPrefs?.let { return it }
+        synchronized(this) {
+            cachedPrefs?.let { return it }
+            val appContext = context.applicationContext
+            val prefs: SharedPreferences = try {
+                val masterKey = MasterKey.Builder(appContext)
+                    .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+                    .build()
+
+                EncryptedSharedPreferences.create(
+                    appContext,
+                    PREFS_FILE,
+                    masterKey,
+                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+                )
+            } catch (e: Exception) {
+                // FIX Samsung: dacă Keystore-ul eșuează, cădem pe
+                // SharedPreferences simplu ca aplicația să pornească.
+                appContext.getSharedPreferences(FALLBACK_PREFS_FILE, Context.MODE_PRIVATE)
+            }
+            cachedPrefs = prefs
+            return prefs
+        }
     }
 
     fun saveApiKey(context: Context, apiKey: String) {

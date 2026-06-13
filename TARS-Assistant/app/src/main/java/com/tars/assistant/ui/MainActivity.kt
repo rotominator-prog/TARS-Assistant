@@ -17,6 +17,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.tars.assistant.ui.theme.TarsColors
 import com.tars.assistant.ui.theme.TarsTheme
 import com.tars.assistant.viewmodel.TarsViewModel
+import java.io.File
 
 class MainActivity : ComponentActivity() {
 
@@ -30,6 +31,19 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // FIX: crash logger — orice excepție necapturată ajunge în crash.txt
+        // Locație pe telefon: Android/data/com.tars.assistant/files/crash.txt
+        Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
+            try {
+                val crashFile = File(getExternalFilesDir(null), "crash.txt")
+                crashFile.writeText(
+                    "TARS CRASH ${java.util.Date()}\n\n" +
+                    android.util.Log.getStackTraceString(throwable)
+                )
+            } catch (_: Exception) { }
+            android.os.Process.killProcess(android.os.Process.myPid())
+        }
+
         installSplashScreen()
         super.onCreate(savedInstanceState)
 
